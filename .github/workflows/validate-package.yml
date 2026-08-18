@@ -37,13 +37,40 @@ jobs:
               sys.exit("Missing required files: " + ", ".join(missing))
 
           package = json.loads((root / "package.json").read_text(encoding="utf-8"))
-          if package.get("name") != "com.sayunana.physbone2springbone":
+          if package.get("name") != "com.ccd775.avatar-physbone-converter":
               sys.exit("Unexpected package name")
+          if package.get("author", {}).get("name") != "ccd775":
+              sys.exit("Unexpected public author")
+
+          old_identifier = "say" + "unana"
+          leaked = []
+          for path in root.rglob("*"):
+              if not path.is_file() or path.suffix.lower() in {".png", ".meta"}:
+                  continue
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except UnicodeDecodeError:
+                  continue
+              if old_identifier in text:
+                  leaked.append(str(path))
+          if leaked:
+              sys.exit("Legacy public identifier remains: " + ", ".join(leaked))
 
           source = (root / "Editor/PhysBone2SpringBoneConverter.cs").read_text(encoding="utf-8")
           match = re.search(r'ConverterVersion\s*=\s*"([^"]+)"', source)
           if not match or match.group(1) != package.get("version"):
               sys.exit("package.json version and ConverterVersion differ")
+          if "namespace ccd775.AvatarPhysBoneConverter" not in source:
+              sys.exit("Unexpected public namespace")
+
+          window_source = (root / "Editor/PhysBone2SpringBoneWindow.cs").read_text(encoding="utf-8")
+          if 'MenuItem("Tools/Avatar/PhysBone to VRM 1 SpringBone")' not in window_source:
+              sys.exit("Tools/Avatar menu is missing")
+
+          readme = (root / "README.md").read_text(encoding="utf-8")
+          intro_image = "![VRC PhysBone 转换为 VRM 1.0 SpringBone](Documentation/Images/physbone-to-vrm1-springbone.png)"
+          if not re.match(r"^# [^\n]+\n\n" + re.escape(intro_image), readme):
+              sys.exit("Introduction image must be directly below the README title")
 
           forbidden_extensions = {".asset", ".prefab", ".unity", ".vrm"}
           forbidden = [

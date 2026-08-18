@@ -1,6 +1,6 @@
 {
-  "name": "sayunana.PhysBone2SpringBone",
-  "rootNamespace": "sayunana",
+  "name": "ccd775.AvatarPhysBoneConverter",
+  "rootNamespace": "ccd775.AvatarPhysBoneConverter",
   "references": [],
   "includePlatforms": [],
   "excludePlatforms": [],

@@ -2,6 +2,13 @@
 
 All notable changes to this package are documented here.
 
+## [2.3.0]
+
+- Rebranded the public namespace, assemblies, package id, folder, and menu as `ccd775.AvatarPhysBoneConverter` / `Tools/Avatar`.
+- Added the conversion comparison image to the top of the repository README.
+- Added a tool-only `.unitypackage` and a recommended package that bundles official UniVRM 0.131.2 for projects without UniVRM.
+- Documented official UniVRM source, version, license, and SHA-256 verification.
+
 ## [2.2.0]
 
 - Added independent converted Prefab saving with dedicated VRM metadata and an integrated entry to the UniVRM VRM 1.0 exporter.

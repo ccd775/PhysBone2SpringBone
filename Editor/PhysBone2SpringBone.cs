@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace sayunana
+namespace ccd775.AvatarPhysBoneConverter
 {
     [Obsolete("Use PhysBone2SpringBoneWindow instead.")]
     public class PhysBone2SpringBone : EditorWindow

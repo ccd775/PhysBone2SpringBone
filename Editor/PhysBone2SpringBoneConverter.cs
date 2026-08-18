@@ -10,7 +10,7 @@ using UnityEngine;
 using VRC.Dynamics;
 using VRC.SDK3.Dynamics.PhysBone.Components;
 
-namespace sayunana
+namespace ccd775.AvatarPhysBoneConverter
 {
     public enum PhysBone2SpringBoneIssueSeverity
     {
@@ -77,7 +77,7 @@ namespace sayunana
 
     public static class PhysBone2SpringBoneConverter
     {
-        public const string ConverterVersion = "2.2.0";
+        public const string ConverterVersion = "2.3.0";
         private const float ReferenceDeltaTime = 1.0f / 60.0f;
         private const float Epsilon = 0.000001f;
         private const float FullyImmobileThreshold = 0.999f;

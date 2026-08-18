@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace sayunana
+namespace ccd775.AvatarPhysBoneConverter
 {
     [AddComponentMenu("")]
     [DisallowMultipleComponent]

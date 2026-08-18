@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace sayunana
+namespace ccd775.AvatarPhysBoneConverter
 {
     public static class PhysBone2SpringBoneExportUtility
     {

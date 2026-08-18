@@ -1,6 +1,7 @@
 MIT License
 
-Copyright (c) 2025-2026 Droy Louo
+Copyright (c) 2024 sayunana
+Copyright (c) 2025-2026 ccd775
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

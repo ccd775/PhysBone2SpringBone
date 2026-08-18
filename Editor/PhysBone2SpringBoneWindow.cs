@@ -4,7 +4,7 @@ using UniVRM10;
 using UnityEditor;
 using UnityEngine;
 
-namespace sayunana
+namespace ccd775.AvatarPhysBoneConverter
 {
     public sealed class PhysBone2SpringBoneWindow : EditorWindow
     {
@@ -21,7 +21,7 @@ namespace sayunana
         private string _lastMessage;
         private MessageType _lastMessageType;
 
-        [MenuItem("sayunana/PhysBone2SpringBone")]
+        [MenuItem("Tools/Avatar/PhysBone to VRM 1 SpringBone")]
         private static void Open()
         {
             ShowWindow();

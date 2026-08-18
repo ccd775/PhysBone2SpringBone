@@ -1,8 +1,8 @@
 {
-  "name": "sayunana.PhysBone2SpringBone.Editor",
-  "rootNamespace": "sayunana",
+  "name": "ccd775.AvatarPhysBoneConverter.Editor",
+  "rootNamespace": "ccd775.AvatarPhysBoneConverter",
   "references": [
-    "sayunana.PhysBone2SpringBone",
+    "ccd775.AvatarPhysBoneConverter",
     "UniHumanoid",
     "SpringBoneJobs",
     "UniGLTF.Editor",
