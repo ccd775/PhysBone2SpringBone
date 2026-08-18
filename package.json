@@ -1,0 +1,32 @@
+{
+  "name": "com.sayunana.physbone2springbone",
+  "version": "2.2.0",
+  "displayName": "PhysBone to VRM 1 SpringBone",
+  "description": "Editor tools for converting VRC PhysBone components and explicit colliders to VRM 1.0 SpringBone, then saving and exporting the converted avatar.",
+  "unity": "2022.3",
+  "type": "tool",
+  "license": "MIT",
+  "author": {
+    "name": "Droy Louo",
+    "url": "https://github.com/ccd775"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccd775/PhysBone2SpringBone.git"
+  },
+  "changelogUrl": "https://github.com/ccd775/PhysBone2SpringBone/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/ccd775/PhysBone2SpringBone/blob/main/LICENSE.md",
+  "dependencies": {
+    "com.unity.modules.animation": "1.0.0"
+  },
+  "vpmDependencies": {
+    "com.vrchat.avatars": ">=3.10.3 <4.0.0"
+  },
+  "keywords": [
+    "vrchat",
+    "physbone",
+    "vrm",
+    "springbone",
+    "avatar"
+  ]
+}

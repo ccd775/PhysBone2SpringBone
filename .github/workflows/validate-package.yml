@@ -1,0 +1,56 @@
+name: Validate Unity package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate package contents
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".")
+          required = [
+              "package.json",
+              "README.md",
+              "LICENSE.md",
+              "NOTICE.md",
+              "CHANGELOG.md",
+              "PhysBone2SpringBoneManifest.cs",
+              "Editor/PhysBone2SpringBoneConverter.cs",
+              "Editor/PhysBone2SpringBoneWindow.cs",
+              "Editor/PhysBone2SpringBoneExportUtility.cs",
+          ]
+          missing = [path for path in required if not (root / path).is_file()]
+          if missing:
+              sys.exit("Missing required files: " + ", ".join(missing))
+
+          package = json.loads((root / "package.json").read_text(encoding="utf-8"))
+          if package.get("name") != "com.sayunana.physbone2springbone":
+              sys.exit("Unexpected package name")
+
+          source = (root / "Editor/PhysBone2SpringBoneConverter.cs").read_text(encoding="utf-8")
+          match = re.search(r'ConverterVersion\s*=\s*"([^"]+)"', source)
+          if not match or match.group(1) != package.get("version"):
+              sys.exit("package.json version and ConverterVersion differ")
+
+          forbidden_extensions = {".asset", ".prefab", ".unity", ".vrm"}
+          forbidden = [
+              str(path)
+              for path in root.rglob("*")
+              if path.is_file() and path.suffix.lower() in forbidden_extensions
+          ]
+          if forbidden:
+              sys.exit("Generated/project assets must not be published: " + ", ".join(forbidden))
+          PY

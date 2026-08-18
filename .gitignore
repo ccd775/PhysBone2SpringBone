@@ -1,0 +1,7 @@
+/Generated/
+/Generated.meta
+*.unitypackage
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,23 @@
+{
+  "name": "sayunana.PhysBone2SpringBone.Editor",
+  "rootNamespace": "sayunana",
+  "references": [
+    "sayunana.PhysBone2SpringBone",
+    "UniHumanoid",
+    "SpringBoneJobs",
+    "UniGLTF.Editor",
+    "VRM10",
+    "VRM10.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
